@@ -1,0 +1,12 @@
+## Interface: 30300
+## Title: Hello Again
+## Notes: Tracks your familiarity with other players based on shared adventures.
+## Author:
+## Version: 1.0
+## DefaultState: enabled
+## SavedVariables: HelloAgainDB
+
+db.lua
+score.lua
+HelloAgain.lua
+tooltip.lua
