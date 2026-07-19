@@ -5,8 +5,13 @@
 ## Version: 1.0
 ## DefaultState: enabled
 ## SavedVariables: RememberMeDB
+## OptionalDeps: Details
 
 db.lua
 score.lua
 RememberMe.lua
+lootroll.lua
+pvp.lua
+chat.lua
+damage.lua
 tooltip.lua
