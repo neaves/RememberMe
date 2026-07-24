@@ -30,6 +30,17 @@ frame:SetScript("OnEvent", function()
     local groupTotal = combat:GetTotal(DETAILS_ATTRIBUTE_DAMAGE, DETAILS_SUBATTRIBUTE_DAMAGEDONE, DETAILS_TOTALS_ONLYGROUP)
     if not groupTotal or groupTotal <= 0 then return end
 
+    -- name -> unit token, so the top-damage tank check below can query UnitGroupRolesAssigned
+    local unitByName = {}
+    for i = 1, GetNumPartyMembers() do
+        local unit = "party" .. i
+        local unitName = UnitName(unit)
+        if unitName and unitName ~= "Unknown" then
+            unitByName[unitName] = unit
+        end
+    end
+
+    local topName, topTotal
     for name in pairs(RememberMe_GetCurrentPartyNames()) do
         local actor = combat:GetActor(DETAILS_ATTRIBUTE_DAMAGE, name)
         if actor and actor.total and actor.total > 0 then
@@ -40,6 +51,17 @@ frame:SetScript("OnEvent", function()
                     break
                 end
             end
+            if not topTotal or actor.total > topTotal then
+                topName, topTotal = name, actor.total
+            end
+        end
+    end
+
+    -- "Identity Crisis": queued as the tank, but ended up topping the damage meters
+    if topName then
+        local unit = unitByName[topName]
+        if unit and UnitGroupRolesAssigned(unit) == "TANK" then
+            RememberMe_AddBadge(topName, "identity_crisis", nil, "Topped damage meters while tanking the dungeon")
         end
     end
 end)

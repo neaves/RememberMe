@@ -69,6 +69,11 @@ RememberMe_Badges = {
         subLabel = "Dealt 50%+ of the group's damage this dungeon" },
     thats_not_normal = { weight = 75, label = "That's Not Normal",
         subLabel = "Dealt 60%+ of the group's damage -- might want to get that checked" },
+
+    -- Awarded when the dungeon's top overall damage dealer was queued as the tank
+    -- (see damage.lua) -- i.e. forgot which job they signed up for.
+    identity_crisis = { weight = 20, label = "Identity Crisis",
+        subLabel = "Topped the damage meters while tanking the dungeon" },
 }
 
 -- Damage-share thresholds for the Big Pumper badge line, highest first so a single
