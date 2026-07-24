@@ -80,6 +80,18 @@ RememberMe_DamageShareTiers = {
     { 30, "big_pumper_1" },
 }
 
+-- Tiered badge families: db.lua never clears an earlier tier once its threshold is
+-- hit, so a well-played character ends up with every tier of every category stacked
+-- in the DB forever. The tooltip uses this map to only ever display the highest tier
+-- actually reached per family (see tooltip.lua).
+RememberMe_BadgeTierGroups = {
+    questy       = { "questy_1", "questy_2", "questy_3" },
+    dungeon_crew = { "dungeon_crew_1", "dungeon_crew_2", "dungeon_crew_3" },
+    battle_buddy = { "battle_buddy_1", "battle_buddy_2", "battle_buddy_3" },
+    chatty       = { "chatty_1", "chatty_2", "chatty_3" },
+    big_pumper   = { "big_pumper_1", "big_pumper_2", "big_pumper_3", "thats_not_normal" },
+}
+
 -- Milestone thresholds that award a tiered badge the moment a progress counter
 -- (see RememberMe_AdvanceProgress in db.lua) first reaches them. Counts are exact
 -- because progress only ever increases by 1, so `==` is a safe one-shot trigger.
