@@ -4,11 +4,12 @@
 ## Author:
 ## Version: 1.0
 ## DefaultState: enabled
-## SavedVariables: RememberMeDB
+## SavedVariables: RememberMeDB, RememberMeDebugDB
 ## OptionalDeps: Details
 
 db.lua
 score.lua
+debug.lua
 RememberMe.lua
 lootroll.lua
 pvp.lua

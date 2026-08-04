@@ -16,7 +16,7 @@ RememberMe_Weights = {
 RememberMe_Badges = {
     -- Loot etiquette (negative)
     leaver = { weight = -15, label = "Leaver",
-        subLabel = "Bailed on an LFG dungeon before the reward popped" },
+        subLabel = "Wasn't there when the LFG dungeon's completion reward popped" },
     ninja  = { weight = -25, label = "Ninja",
         subLabel = "Needed a BoE item you Greeded" },
     needy  = { weight = -10, label = "Needy",
